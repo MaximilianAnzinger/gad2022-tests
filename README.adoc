@@ -1,0 +1,116 @@
+:title: Lotus
+:description: TData Visualisation Tool
+:keywords: python, data, students, research, visualisation, plot
+:author: Maximilian Anzinger
+:revnumber: 0.1.0
+:revdate: 2022-04-05
+:revremark:
+:showtitle:
+:sectnums:
+:toc: preamble
+:toclevels: 3
+:icons: font
+
+:owner: MaximilianAnzinger
+:repo: Lotus
+:pyver: 3.8+
+:matplotlibver: 3.5
+
+= Lotus
+
+Data Visualisation Tool
+
+== About
+
+image:https://img.shields.io/github/release/{owner}/{repo}/StrapDown.js.svg[GitHub release]
+image:https://badgen.net/github/last-commit/{owner}/{repo}/Strapdown.js[GitHub last commit]
+image:https://img.shields.io/badge/maintainer-Maximilian Anzinger-blue[Maintainer]
+
+image:https://github.com/{owner}/{repo}/actions/workflows/tests.yml/badge.svg?branch=master[tests]
+
+asdf
+
+== Setup
+
+=== Prerequesits
+
+==== Python
+
+image:https://img.shields.io/badge/python-{pyver}-blue.svg[python]
+
+To run Lotus https://www.python.org/[`Python`] is required. Either install the https://www.python.org/downloads/[`latest version`] or use any other supported version ({pyver}).
+
+==== Matplotlib
+
+image:https://img.shields.io/badge/Matplotlib-{matplotlibver}-blue.svg[matplotlib]
+
+Lotus relies on the library https://matplotlib.org/stable/index.html#[`Matplotlib`]. Either use one of the following two comands or refere to their documentation for further instructions.
+
+.Install using pip:
+[source,shell]
+----
+pip install matplotlib
+----
+
+.Install using conda:
+[source,shell]
+----
+conda install matplotlib
+----
+
+=== Lotus
+It is recommendet to download the latest https://github.com/{owner}/{repo}/releases[`Release`]. Extract the files to your prefered working space and continue in section 3.
+
+Furthermore, you can download the repository by either opening a terminal, changing into the desired directory and using git clone `https://github.com/{owner}/{repo}.git` to clone the repository. Note that you might experience more bugs compared to the latest release version.
+
+If you don't have git or are unsure on how to use it, then you can scroll to the top, press the green `code` button and download the project as a zip-archive. Note that you first have to unzip the archive before continuing.
+
+== Basic Usage
+
+=== CSV Format
+
+.Your data must be formated as follows:
+- First row (`Header`) contains all groups for each `Dataset`. Keep in mind, that the first entry will be omitted.
+- The `Header` must be separated from the following `Dataset` by at least one empty row.
+- Each `Dataset` starts with the corresponding `Title` followed by a row of the labels.
+- Two `Datasets` must be separated by at least one empty row.
+- The default delimiter is ','. If you wan't to use another format, please refere to the `Advanced` section.
+
+The following table depicts an example format. You can create a file from scratch or use the provided `example.csv` for guidance.
+
+.Example CSV
+|====
+| a | Group 1 | Group 2 | ... | Group m  |  |  |
+| `At least one empty row` |  |  |  |  |  |  |
+| Dataset Title |  |  |  |  |  |  |
+| Label 1.1 | ... | Label n.1 | ... | Label 1.m | ... | Label n.m |
+| Value 1.1.1 | ... | Value 1.n.1 | ... | Value 1.1.m | ... | Value 1.n.m |
+| ... | ... | ... | ... | ... | ... | ... |
+| Value k.1.1 | ... | Value k.n.1 | ... | Value k.1.m | ... | Value k.n.m |
+| `At least one empty row` |  |  |  |  |  |  |
+| Dataset Title |  |  |  |  |  |  |
+| Label 1.1 | ... | Label n.1 | ... | Label 1.m | ... | Label n.m |
+| Value 1.1.1 | ... | Value 1.n.1 | ... | Value 1.1.m | ... | Value 1.n.m |
+| ... | ... | ... | ... | ... | ... | ... |
+| Value l.1.1 | ... | Value l.n.1 | ... | Value l.1.m | ... | Value l.n.m |
+|====
+
+
+=== Generating Graphics
+
+asdf
+
+=== Advanced
+
+For more information please refere to the https://github.com/{owner}/{repo}/wiki[`wiki`]
+
+== Contribute
+
+image:https://badgen.net/github/contributors/{owner}/{repo}[Github contributors]
+
+All contributions are appreciated. Feel free to fork the project and create a pull request at any time.
+
+== License
+image:https://badgen.net/github/license/{owner}/{repo}/Strapdown.js[GitHub license]
+
+Lotus was created by {author} and is licensed under the https://github.com/{owner}/{repo}/blob/main/LICENSE[MIT License, see `LICENSE`].
