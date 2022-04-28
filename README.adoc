@@ -14,7 +14,7 @@
 
 = GAD 2022 - Tests
 
-GAD 2022 - Tests is the official repository used to share tests created by students.
+This is a repository to collect JUnit Tests for GAD exercises at TUM in SS22. These tests have been written by students for students and are not part of the official course.
 
 == Legal Status
 
