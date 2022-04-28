@@ -1,9 +1,7 @@
-:title: Lotus
-:description: TData Visualisation Tool
-:keywords: python, data, students, research, visualisation, plot
+:title: GAD2022-Test
+:description: Testcases for GAD exercises
+:keywords: java, tum, gad, students
 :author: Maximilian Anzinger
-:revnumber: 0.1.0
-:revdate: 2022-04-05
 :revremark:
 :showtitle:
 :sectnums:
@@ -12,103 +10,111 @@
 :icons: font
 
 :owner: MaximilianAnzinger
-:repo: Lotus
-:pyver: 3.8+
-:matplotlibver: 3.5
+:repo: gad2022-tests
 
-= Lotus
+= GAD 2022 - Tests
 
-Data Visualisation Tool
+GAD 2022 - Tests is the official repository used to share code tests.
 
-== About
+== Legal Status
 
-image:https://img.shields.io/github/release/{owner}/{repo}/StrapDown.js.svg[GitHub release]
-image:https://badgen.net/github/last-commit/{owner}/{repo}/Strapdown.js[GitHub last commit]
-image:https://img.shields.io/badge/maintainer-Maximilian Anzinger-blue[Maintainer]
+> Es ist alles erlaubt, was die Lösung nicht verrät.
 
-image:https://github.com/{owner}/{repo}/actions/workflows/tests.yml/badge.svg?branch=master[tests]
+The so-called *Übungsleitung* will have an eye on this repository. But as long as the tests do not reveal the solution of the homework, this repository will be tolerated. To ensure the solution is not getting revealed, the tests should be Input/Output-Tests.
 
-asdf
+.Examples
 
-== Setup
+correct:
+[source,java]
+----
+// Test Area calculation
+// Arrange
+Rectangle r1 = new Rectangle(length: 4, width: 4)
+// Act & Assert
+assertEquals(16, r1.calculateArea());
+----
 
-=== Prerequesits
+wrong!:
+[source,java]
+----
+// Test Area calculation
+// Arrange
+Rectangle r1 = new Rectangle(length: 4, width: 6)
+// Act & Assert
+// Calculate using length * width             // <-- reveales the solution
+assertEquals(4*6, r1.calculateArea()); // <-- reveales the solution
+----
 
-==== Python
+== Usage
 
-image:https://img.shields.io/badge/python-{pyver}-blue.svg[python]
-
-To run Lotus https://www.python.org/[`Python`] is required. Either install the https://www.python.org/downloads/[`latest version`] or use any other supported version ({pyver}).
-
-==== Matplotlib
-
-image:https://img.shields.io/badge/Matplotlib-{matplotlibver}-blue.svg[matplotlib]
-
-Lotus relies on the library https://matplotlib.org/stable/index.html#[`Matplotlib`]. Either use one of the following two comands or refere to their documentation for further instructions.
-
-.Install using pip:
+. Clone this repository
++
 [source,shell]
 ----
-pip install matplotlib
+git clone https://github.com/MaximilianAnzinger/gad2022-tests.git
 ----
 
-.Install using conda:
+. Check for updates
++
 [source,shell]
 ----
-conda install matplotlib
+git pull
 ----
 
-=== Lotus
-It is recommendet to download the latest https://github.com/{owner}/{repo}/releases[`Release`]. Extract the files to your prefered working space and continue in section 3.
+. Add the test folder to your `src`-folder of your artemis java project
++
+*Or* use the syslink instruction below.
 
-Furthermore, you can download the repository by either opening a terminal, changing into the desired directory and using git clone `https://github.com/{owner}/{repo}.git` to clone the repository. Note that you might experience more bugs compared to the latest release version.
+. Make sure your IDE (e.g. IntelIJ or Eclipse) sees your added files
 
-If you don't have git or are unsure on how to use it, then you can scroll to the top, press the green `code` button and download the project as a zip-archive. Note that you first have to unzip the archive before continuing.
+. Include JUnit to your Project by pressing the red lightbulb (or `ALT + ENTER` in IntelIJ) on one of the red underlined @Test Annotations in the test file.
 
-== Basic Usage
+. *Do not add them to your artemis git repository*
 
-=== CSV Format
+. Run the tests and check your mistakes
 
-.Your data must be formated as follows:
-- First row (`Header`) contains all groups for each `Dataset`. Keep in mind, that the first entry will be omitted.
-- The `Header` must be separated from the following `Dataset` by at least one empty row.
-- Each `Dataset` starts with the corresponding `Title` followed by a row of the labels.
-- Two `Datasets` must be separated by at least one empty row.
-- The default delimiter is ','. If you wan't to use another format, please refere to the `Advanced` section.
+.Important note
+As this is a student-driven project please keep in mind that mistakes can happen. If you think a test is wrong, please feel free to open an Issue (it is easy!). To help fixing bugs, please add following info to your Issue:
 
-The following table depicts an example format. You can create a file from scratch or use the provided `example.csv` for guidance.
+* Operating system
+* IDE (IntelIJ, Eclipse, ...)
+* Where is the mistake / error
+* Citation of the homework instruction
 
-.Example CSV
-|====
-| a | Group 1 | Group 2 | ... | Group m  |  |  |
-| `At least one empty row` |  |  |  |  |  |  |
-| Dataset Title |  |  |  |  |  |  |
-| Label 1.1 | ... | Label n.1 | ... | Label 1.m | ... | Label n.m |
-| Value 1.1.1 | ... | Value 1.n.1 | ... | Value 1.1.m | ... | Value 1.n.m |
-| ... | ... | ... | ... | ... | ... | ... |
-| Value k.1.1 | ... | Value k.n.1 | ... | Value k.1.m | ... | Value k.n.m |
-| `At least one empty row` |  |  |  |  |  |  |
-| Dataset Title |  |  |  |  |  |  |
-| Label 1.1 | ... | Label n.1 | ... | Label 1.m | ... | Label n.m |
-| Value 1.1.1 | ... | Value 1.n.1 | ... | Value 1.1.m | ... | Value 1.n.m |
-| ... | ... | ... | ... | ... | ... | ... |
-| Value l.1.1 | ... | Value l.n.1 | ... | Value l.1.m | ... | Value l.n.m |
-|====
+.How to use syslinks (Advanced Users only!)
+*Windows:*
 
+This has to be executed in the command line, run as administrator:
+[source,shell]
+----
+$ mklink /d \path\to\src\tests \path\to\repository\tests
+----
 
-=== Generating Graphics
+*Linux/MacOS:*
 
-asdf
+[source,shell]
+----
+$ ln -s /path/to/repository/tests /path/to/src/
+----
 
-=== Advanced
+== How to Contribute
 
-For more information please refere to the https://github.com/{owner}/{repo}/wiki[`wiki`]
+. Fork Repository (https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository[Github Documentation])
+. Add / edit tests under `<EXERCISE>/src/test``
+. *Ensure no solution or homework-code is getting revealed*
+. Commit and push to your fork repository
+. Open a Pull Request to this repository (https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests[Github Documentation])
+. Wait until the changes are merged
 
-== Contribute
+== Helpful Links
 
-image:https://badgen.net/github/contributors/{owner}/{repo}[Github contributors]
+. Write Tests using https://junit.org/junit5/docs/current/user-guide/#writing-tests[JUnit 5]
+. How to use https://www.atlassian.com/de/git/tutorials/learn-git-with-bitbucket-cloud[Git]
+. How to use https://docs.github.com/en/get-started/quickstart/hello-world[Github]
 
-All contributions are appreciated. Feel free to fork the project and create a pull request at any time.
+== Contact
+
+Feel free to contact us (Maximilian Anzinger, Johannes Stöhr, Georg Henning, Oliver Specht) via Zulip, but consider using https://www.google.com/[google] beforehand.
 
 == License
 image:https://badgen.net/github/license/{owner}/{repo}/Strapdown.js[GitHub license]
