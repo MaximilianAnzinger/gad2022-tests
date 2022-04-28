@@ -117,6 +117,5 @@ $ ln -s /path/to/repository/tests /path/to/src/
 Feel free to contact us (Maximilian Anzinger, Johannes Stöhr, Georg Henning, Oliver Specht) via Zulip, but consider using https://www.google.com/[google] beforehand.
 
 == License
-image:https://badgen.net/github/license/{owner}/{repo}/Strapdown.js[GitHub license]
 
 Lotus was created by {author} and is licensed under the https://github.com/{owner}/{repo}/blob/main/LICENSE[MIT License, see `LICENSE`].
