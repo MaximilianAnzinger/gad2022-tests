@@ -14,7 +14,7 @@
 
 = GAD 2022 - Tests
 
-GAD 2022 - Tests is the official repository used to share code tests.
+GAD 2022 - Tests is the official repository used to share tests created by students.
 
 == Legal Status
 
@@ -22,7 +22,7 @@ GAD 2022 - Tests is the official repository used to share code tests.
 
 The so-called *Übungsleitung* will have an eye on this repository. But as long as the tests do not reveal the solution of the homework, this repository will tolerate them. To ensure the solution is not getting revealed, the tests should be Input/Output-Tests only.
 
-Furthermore, there is no guarantee of the correctness of the tests. The *Übungsleitung* will *never* contribute own tests. We will just make shure that there are no tests that reveal the solution.
+Furthermore, there is no guarantee of the correctness of the tests. Neither the *Übungsleitung* nor any of the other tutors will contribute own tests. We (Maximilian Anzinger, Johannes Stöhr, Georg Henning, Oliver Specht) will just make shure that there are no tests that reveal the solution. It is your own responsibility to validate the correctness and if necessary report bugs or even provide/contribute a fix for your fellow student.
 
 .Examples
 
@@ -117,3 +117,5 @@ $ ln -s /path/to/repository/tests /path/to/src/
 == Contact
 
 Feel free to contact us (Maximilian Anzinger, Johannes Stöhr, Georg Henning, Oliver Specht) via Zulip, but consider using https://www.google.com/[google] beforehand.
+
+*Under no circumstances contact the Übungsleitung regarding any problems that may occur while using these tests or contributing to this repository.*
