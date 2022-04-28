@@ -20,7 +20,9 @@ GAD 2022 - Tests is the official repository used to share code tests.
 
 > Es ist alles erlaubt, was die Lösung nicht verrät.
 
-The so-called *Übungsleitung* will have an eye on this repository. But as long as the tests do not reveal the solution of the homework, this repository will be tolerated. To ensure the solution is not getting revealed, the tests should be Input/Output-Tests.
+The so-called *Übungsleitung* will have an eye on this repository. But as long as the tests do not reveal the solution of the homework, this repository will tolerate them. To ensure the solution is not getting revealed, the tests should be Input/Output-Tests only.
+
+Furthermore, there is no guarantee of the correctness of the tests. The *Übungsleitung* will *never* contribute own tests. We will just make shure that there are no tests that reveal the solution.
 
 .Examples
 
@@ -74,14 +76,14 @@ git pull
 . Run the tests and check your mistakes
 
 .Important note
-As this is a student-driven project please keep in mind that mistakes can happen. If you think a test is wrong, please feel free to open an Issue (it is easy!). To help fixing bugs, please add following info to your Issue:
+As this is a student-driven project please keep in mind that mistakes can happen. If you think a test is wrong, please feel free to open an Issue (it is easy!). To help fixing bugs, please add the following info to your https://github.com/MaximilianAnzinger/gad2022-tests/issues[`Issue`]:
 
 * Operating system
 * IDE (IntelIJ, Eclipse, ...)
 * Where is the mistake / error
 * Citation of the homework instruction
 
-.How to use syslinks (Advanced Users only!)
+.How to use symlinks (Advanced Users only!)
 *Windows:*
 
 This has to be executed in the command line, run as administrator:
@@ -115,7 +117,3 @@ $ ln -s /path/to/repository/tests /path/to/src/
 == Contact
 
 Feel free to contact us (Maximilian Anzinger, Johannes Stöhr, Georg Henning, Oliver Specht) via Zulip, but consider using https://www.google.com/[google] beforehand.
-
-== License
-
-Lotus was created by {author} and is licensed under the https://github.com/{owner}/{repo}/blob/main/LICENSE[MIT License, see `LICENSE`].
