@@ -1,4 +1,4 @@
-package gad.binarysearch.tests.binarysearch;
+package gad.tests.binarysearch;
 
 import gad.binarysearch.BinSea;
 import gad.binarysearch.StudentResult;
@@ -11,8 +11,8 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-class BoundarySearch {
-	static Stream<Arguments> binarySearchBounds_Simple() {
+class BoundSearch {
+	static Stream<Arguments> simple() {
 		return Stream.of(
 				Arguments.of(new int[]{1, 2, 3, 4}, 1, true, 0),
 				Arguments.of(new int[]{1, 2, 3, 4}, 2, true, 1),
@@ -21,7 +21,7 @@ class BoundarySearch {
 		);
 	}
 
-	static Stream<Arguments> binarySearchBounds_DuplicatesInArray() {
+	static Stream<Arguments> duplicatesInArray() {
 		return Stream.of(
 				Arguments.of(new int[]{1, 2, 2, 2, 6, 7, 8, 9, 10}, 2, true, 1),
 				Arguments.of(new int[]{1, 2, 2, 2, 6, 7, 8, 9, 10}, 2, false, 3),
@@ -30,7 +30,7 @@ class BoundarySearch {
 		);
 	}
 
-	static Stream<Arguments> binarySearchBounds_ValueNotInArray() {
+	static Stream<Arguments> valueNotInArray() {
 		return Stream.of(
 				Arguments.of(new int[]{1, 2, 3, 4}, 5, true, -1),
 				Arguments.of(new int[]{1, 2, 3, 4}, 5, false, 3),
@@ -40,7 +40,7 @@ class BoundarySearch {
 		);
 	}
 
-	static Stream<Arguments> binarySearchBounds_RandomValues() {
+	static Stream<Arguments> randomValues() {
 		return Stream.of(
 				Arguments.of(new int[]{0, 1, 1, 1, 1, 1, 1, 1}, 1, true, 1),
 				Arguments.of(new int[]{1, 1, 1, 1, 1, 1, 1}, 2, true, -1),
@@ -56,8 +56,7 @@ class BoundarySearch {
 	}
 
 	@ParameterizedTest
-	@MethodSource({"binarySearchBounds_Simple", "binarySearchBounds_RandomValues",
-			"binarySearchBounds_ValueNotInArray", "binarySearchBounds_DuplicatesInArray"})
+	@MethodSource({"simple", "randomValues", "valueNotInArray", "duplicatesInArray"})
 	void testSearch(int[] arr, int value, boolean lowerBound, int expectedIdx) {
 		assertEquals(expectedIdx, BinSea.search(arr, value, lowerBound, new StudentResult()));
 	}

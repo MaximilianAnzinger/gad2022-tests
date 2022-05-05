@@ -1,4 +1,4 @@
-package gad.binarysearch.tests.binarysearch;
+package gad.tests.binarysearch;
 
 
 import gad.binarysearch.BinSea;
@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 @Nested
 class SimpleSearch {
 
-	static Stream<Arguments> binarySearchDirect_Simple() {
+	static Stream<Arguments> simple() {
 		return Stream.of(
 				Arguments.of(new int[]{1, 2, 3, 4}, 1, 0),
 				Arguments.of(new int[]{1, 2, 3, 4}, 2, 1),
@@ -27,7 +27,7 @@ class SimpleSearch {
 		);
 	}
 
-	static Stream<Arguments> binarySearchDirect_ValuesNotInArray() {
+	static Stream<Arguments> valuesNotInArray() {
 		return Stream.of(
 				Arguments.of(new int[]{1, 2, 3, 4}, 5, 3),
 				Arguments.of(new int[]{1, 2, 3, 4}, 0, 0),
@@ -36,7 +36,7 @@ class SimpleSearch {
 		);
 	}
 
-	static Stream<Arguments> binarySearchDirect_DuplicatesInArray() {
+	static Stream<Arguments> duplicatesInArray() {
 		return Stream.of(
 				Arguments.of(new int[]{1, 2, 2, 2, 6, 7, 8, 9, 10}, 2, 1),
 				Arguments.of(new int[]{1, 2, 2, 2, 6, 7, 8, 9, 10}, 6, 4),
@@ -45,8 +45,7 @@ class SimpleSearch {
 	}
 
 	@ParameterizedTest
-	@MethodSource({"binarySearchDirect_Simple", "binarySearchDirect_ValuesNotInArray",
-			"binarySearchDirect_DuplicatesInArray"})
+	@MethodSource({"simple", "valuesNotInArray", "duplicatesInArray"})
 	void testSearch(int[] arr, int value, int expectedIdx) {
 		Assertions.assertEquals(expectedIdx, BinSea.search(arr, value, new StudentResult()));
 	}

@@ -1,4 +1,4 @@
-package gad.binarysearch.tests.binarysearch;
+package gad.tests.binarysearch;
 
 import gad.binarysearch.BinSea;
 import gad.binarysearch.Interval;
@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class IntervalSearch {
 
-	static Stream<Arguments> binarySearchInterval_Random() {
+	static Stream<Arguments> random() {
 		return Stream.of(
 				Arguments.of(
 						new int[]{1, 4, 4, 4, 5, 5, 5, 5, 8},
@@ -31,7 +31,7 @@ class IntervalSearch {
 		);
 	}
 
-	static Stream<Arguments> binarySearchInterval_Empty() {
+	static Stream<Arguments> empty() {
 		return Stream.of(
 				Arguments.of(
 						new int[]{1, 4, 4, 4, 5, 5, 5, 5, 8},
@@ -49,7 +49,7 @@ class IntervalSearch {
 	}
 
 	@ParameterizedTest
-	@MethodSource({"binarySearchInterval_Random", "binarySearchInterval_Empty"})
+	@MethodSource({"random", "empty"})
 	void testSearch(int[] arr, Interval interval, Interval expectedInterval) {
 
 		var resIntervall = BinSea.search(arr, interval, new StudentResult(), new StudentResult());
