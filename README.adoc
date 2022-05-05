@@ -110,6 +110,7 @@ $ ln -s /path/to/repository/tests /path/to/src/
 
 == Helpful Links
 
+. Tests https://github.com/Code-Connect/TUM_Homework/tree/master/src/gad17[SS17], https://github.com/N0W0RK/TUM_GAD_Tests_SS21[SS21] (not necessarily working for this semester, but for sure a great starting point)
 . Write Tests using https://junit.org/junit5/docs/current/user-guide/#writing-tests[JUnit 5]
 . How to use https://www.atlassian.com/de/git/tutorials/learn-git-with-bitbucket-cloud[Git]
 . How to use https://docs.github.com/en/get-started/quickstart/hello-world[Github]
