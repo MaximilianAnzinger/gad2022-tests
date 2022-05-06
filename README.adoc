@@ -108,6 +108,11 @@ $ ln -s /path/to/repository/tests /path/to/src/
 . Open a Pull Request to this repository (https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests[Github Documentation])
 . Wait until the changes are merged
 
+== Contributors
+[#img-contributors]
+[link=https://github.com/MaximilianAnzinger/gad2022-tests/graphs/contributors]
+image::https://contrib.rocks/image?repo=MaximilianAnzinger/gad2022-tests[Contributors]
+
 == Helpful Links
 
 . Tests https://github.com/Code-Connect/TUM_Homework/tree/master/src/gad17[SS17], https://github.com/N0W0RK/TUM_GAD_Tests_SS21[SS21] (not necessarily working for this semester, but for sure a great starting point)
