@@ -1,4 +1,4 @@
-package gad.tests.binarysearch;
+package test;
 
 import gad.binarysearch.BinSea;
 import gad.binarysearch.Interval;
