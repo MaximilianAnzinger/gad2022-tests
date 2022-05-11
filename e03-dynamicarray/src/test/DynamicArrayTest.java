@@ -13,17 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DynamicArrayTest {
 
-    static DynamicArray artemisArray;
-
-    static void getArtemisArray() {
-        DynamicArray array = new DynamicArray(3, 4);
-        array.reportUsage(Interval.EmptyInterval.getEmptyInterval(), 1);
-        array.set(2, 1);
-        array.set(0, 3);
-        artemisArray = array;
-    }
-
-    static DynamicArray getArtemisArrayx() {
+    static DynamicArray getArtemisArray() {
         DynamicArray array = new DynamicArray(3, 4);
         array.reportUsage(Interval.EmptyInterval.getEmptyInterval(), 1);
         array.set(2, 1);
@@ -32,7 +22,7 @@ class DynamicArrayTest {
     }
 
     static Stream<Arguments> artemisTestArguments() {
-        DynamicArray array = getArtemisArrayx();
+        DynamicArray array = getArtemisArray();
         return Stream.of(
                 Arguments.of(array, new Interval.NonEmptyInterval(1, 2), 4, new Interval.NonEmptyInterval(0, 1), new int[]{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}),
                 Arguments.of(array, new Interval.NonEmptyInterval(3, 6), 4, new Interval.NonEmptyInterval(3, 6), new int[]{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}),
