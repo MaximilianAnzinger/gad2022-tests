@@ -14,21 +14,7 @@ public class DynamicStackTest {
 
 	void checkStack(DynamicStack ds, int[] elementsShould, String... errorMsg) throws NoSuchFieldException,
 			IllegalAccessException {
-
-		var dynamicalArrayField = DynamicStack.class.getDeclaredField("array");
-		dynamicalArrayField.setAccessible(true);
-
-		var elementsField = DynamicArray.class.getDeclaredField("elements");
-		elementsField.setAccessible(true);
-
-		var dynamicArray = (DynamicArray) dynamicalArrayField.get(ds);
-		var stackElements = (int[]) elementsField.get(dynamicArray);
-
-		assertArrayEquals(elementsShould, stackElements,
-				"\nShould be:\n" +
-						Arrays.toString(elementsShould) + " but is:\n" +
-						Arrays.toString(stackElements) + "\n" +
-						Arrays.toString(errorMsg) + "\n\n");
+		ArrayHelper.checkUnderlyingArray(elementsShould, ds, errorMsg);
 	}
 
 
@@ -48,7 +34,7 @@ public class DynamicStackTest {
 		checkStack(ds, new int[]{1, 2, 3}, "just pushed 3");
 
 		ds.pushBack(4);
-		checkStack(ds, new int[]{1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0}, "just pushed 4; stack should grow");
+		checkStack(ds, new int[]{1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0}, "just pushed 4 stack should grow");
 
 		assertEquals(4, ds.popBack());
 		checkStack(ds, new int[]{1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0}, "pop should not change the stack");
