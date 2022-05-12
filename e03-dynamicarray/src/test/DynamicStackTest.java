@@ -64,12 +64,6 @@ public class DynamicStackTest {
 
 	}
 
-	@Test
-	void popEmpty() {
-		var ds = new DynamicStack(3, 4, new StudentResult());
-		ds.popBack();
-	}
-
 
 	@Test
 	void addAndRemove() throws NoSuchFieldException, IllegalAccessException {
