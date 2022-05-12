@@ -1,4 +1,4 @@
-package tests;
+package test;
 
 import gad.dynamicarray.DynamicArray;
 import gad.dynamicarray.Interval;
