@@ -63,4 +63,28 @@ public class DynamicStackTest {
 		checkStack(ds, new int[]{1, 2, 0, 0, 0, 0}, "Stack should shrink and only copy the needed elements");
 
 	}
+
+	@Test
+	void popEmpty() {
+		var ds = new DynamicStack(3, 4, new StudentResult());
+		ds.popBack();
+	}
+
+
+	@Test
+	void addAndRemove() throws NoSuchFieldException, IllegalAccessException {
+		var ds = new DynamicStack(3, 4, new StudentResult());
+
+		for (int i = 0; i < 10; i++) {
+			ds.pushBack(i);
+		}
+
+		checkStack(ds, new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0}, "just pushed 10 elements");
+
+		for (int i = 10 - 1; i >= 0; i--) {
+			assertEquals(i, ds.popBack());
+		}
+
+		checkStack(ds, new int[]{}, "removed all elements");
+	}
 }
