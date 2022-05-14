@@ -54,6 +54,13 @@ class BoundSearch {
 				Arguments.of(new int[]{1, 4, 4, 4, 5, 5, 5, 5, 8}, 9, true, -1)
 		);
 	}
+	
+	static Stream<Arguments> sameValues() {
+		return Stream.of(
+				Arguments.of(new int[]{1, 1, 1, 1, 1, 1, 1}, 1, true, 0),
+				Arguments.of(new int[]{1, 1, 1, 1, 1, 1, 1}, 1, false, 6)
+		);
+	}
 
 	static Stream<Arguments> valuesOnArrayBoundaries() {
 		return Stream.of(
@@ -65,7 +72,7 @@ class BoundSearch {
 	}
 
 	@ParameterizedTest
-	@MethodSource({"simple", "randomValues", "valueNotInArray", "duplicatesInArray", "valuesOnArrayBoundaries"})
+	@MethodSource({"simple", "randomValues", "sameValues", "valueNotInArray", "duplicatesInArray", "valuesOnArrayBoundaries"})
 	void testSearch(int[] arr, int value, boolean lowerBound, int expectedIdx) {
 		assertEquals(expectedIdx, BinSea.search(arr, value, lowerBound, new StudentResult()));
 	}
