@@ -31,7 +31,8 @@ class SimpleSearch {
 				Arguments.of(new int[]{1, 2, 3, 4}, 5, 3),
 				Arguments.of(new int[]{1, 2, 3, 4}, 0, 0),
 				Arguments.of(new int[]{1, 2, 3, 4}, -1, 0),
-				Arguments.of(new int[]{1, 2, 3, 4}, -5, 0)
+				Arguments.of(new int[]{1, 2, 3, 4}, -5, 0),
+				Arguments.of(new int[]{1, 2}, 0, 0)
 		);
 	}
 
