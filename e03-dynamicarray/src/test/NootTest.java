@@ -206,4 +206,20 @@ class NootTest {
             assertEquals(101, noot.popBack());
             assertTrue(noot.isEmpty());
         }
+
+    @Test
+    public void popMixed5() {
+        Noot noot = new Noot(2, 5);
+
+        noot.pushBack(1);
+        noot.pushBack(2);
+        noot.pushBack(3);
+
+        assertEquals(1, noot.popFront());
+        assertEquals(3, noot.popBack());
+        noot.pushBack(69);
+        assertEquals(2, noot.popFront());
+        assertEquals(69, noot.popFront());
+        assertTrue(noot.isEmpty());
+    }
 }
