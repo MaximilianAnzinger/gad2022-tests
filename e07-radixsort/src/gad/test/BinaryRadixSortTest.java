@@ -32,4 +32,18 @@ public class BinaryRadixSortTest {
         );
     }
 
+    @Test
+    void testBinaryBucket() {
+        BinaryBucket binaryBucket = new BinaryBucket(10);
+        binaryBucket.insertLeft(2);
+        binaryBucket.insertLeft(5);
+        binaryBucket.insertRight(10);
+        assertEquals(2, binaryBucket.getMid());
+        binaryBucket = new BinaryBucket(100);
+        for (int i = 0; i < 99; i++) {
+            binaryBucket.insertLeft(1);
+        }
+        assertEquals(99, binaryBucket.getMid());
+    }
+
 }
