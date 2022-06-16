@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/e02-binarysearch/e02-binarysearch.iml" filepath="$PROJECT_DIR$/e02-binarysearch/e02-binarysearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e03-dynamicarray/e03-dynamicarray.iml" filepath="$PROJECT_DIR$/e03-dynamicarray/e03-dynamicarray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e04-hashing/e04-hashing.iml" filepath="$PROJECT_DIR$/e04-hashing/e04-hashing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e06-bettersorting/e06-bettersorting.iml" filepath="$PROJECT_DIR$/e06-bettersorting/e06-bettersorting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/e07-radixsort/e07-radixsort.iml" filepath="$PROJECT_DIR$/e07-radixsort/e07-radixsort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gad2022-tests.iml" filepath="$PROJECT_DIR$/.idea/gad2022-tests.iml" />
+    </modules>
+  </component>
+</project>
