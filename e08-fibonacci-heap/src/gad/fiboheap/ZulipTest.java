@@ -43,6 +43,8 @@ public class ZulipTest {
         assertEquals(decreaseKeyPost1String, decreaseKeyPost1().toString());
         // decreaseKey: post decreaseKey(25,5)
         assertEquals(decreaseKeyPost2String, decreaseKeyPost2().toString());
+        // decreaseKey: basic
+        assertEquals(decreaseKeyBasicString, decreaseKeyBasic().toString());
     }
 
     private static FiboHeap<Integer> insertPre() {
@@ -819,6 +821,24 @@ public class ZulipTest {
             n23 -> n5[label="p"];
             n19:n -> n4:n[label="n"];
             n19 -> n23[label="p"];
+            }""";
+
+    private FiboHeap<Integer> decreaseKeyBasic() {
+        FiboHeap<Integer> heap = new FiboHeap<>();
+        heap.insert(11);
+        heap.decreaseKey(heap.getHandle(11), 1);
+        return heap;
+    }
+
+    private static final String decreaseKeyBasicString = """
+            digraph G {
+            min[label="min" pos="0,0!"];
+            subgraph {
+            n1[label="1" pos="0,-1!"];
+            }
+            min -> n1[label=""];
+            n1 -> n1[label="n"];
+            n1 -> n1[label="p"];
             }""";
 
     private static void insertRange(FiboHeap<Integer> heap, int lowerBound, int upperBound, int... stepwidth) {
