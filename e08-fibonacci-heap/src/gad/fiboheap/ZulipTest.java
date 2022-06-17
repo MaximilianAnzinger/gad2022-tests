@@ -30,6 +30,7 @@ public class ZulipTest {
         // extractMin: pre consolidate
         // TODO: add 'System.out.println(this);' in extractMin before calling consolidate
         //		extractMinPost();
+        // and compare to extractMinPreConsolidate
         // extractMin: post operation
         assertEquals(extractMinPostString, extractMinPost().toString());
 
@@ -344,7 +345,7 @@ public class ZulipTest {
          */
     }
 
-    private static final String extractMinPostString = """
+    private static final String extractMinPreConsolidate = """
             digraph G {
             min[label="min" pos="0,0!"];
             subgraph {
@@ -407,10 +408,8 @@ public class ZulipTest {
             n9 -> n5[label="p"];
             n11:n -> n2:n[label="n"];
             n11 -> n9[label="p"];
-            }
-             */
-
-            /* Graphviz string - post consolidate:
+            }""";
+    private static final String extractMinPostString = """
             digraph G {
             min[label="min" pos="0,0!"];
             subgraph {
