@@ -1,4 +1,4 @@
-package gad.SortTesting;
+package test;
 
 import gad.simplesort.Mergesort;
 import gad.simplesort.StudentResult;

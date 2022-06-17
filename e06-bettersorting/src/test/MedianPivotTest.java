@@ -1,4 +1,4 @@
-package gad.SortTesting;
+package test;
 
 import gad.simplesort.PivotFinder;
 import org.junit.jupiter.api.Test;
