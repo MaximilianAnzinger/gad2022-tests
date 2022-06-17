@@ -1,4 +1,5 @@
 package test;
+
 import gad.simplesort.Mergesort;
 import gad.simplesort.StudentResult;
 import org.junit.jupiter.api.Test;
