@@ -538,7 +538,7 @@ public class ZulipTest {
             n17 -> n15[label="u"];
             }
             subgraph {
-            n19[label="19" pos="8,-2!"];
+            n19[label="19" color="red" pos="8,-2!"];
             subgraph {
             n21[label="21" pos="8,-3!"];
             subgraph {
@@ -550,7 +550,7 @@ public class ZulipTest {
             n22 -> n21[label="u"];
             }
             subgraph {
-            n23[label="23" pos="10,-3!"];
+            n23[label="23" color="red" pos="10,-3!"];
             subgraph {
             n25[label="25" pos="10,-4!"];
             subgraph {
@@ -654,7 +654,7 @@ public class ZulipTest {
             n17 -> n15[label="u"];
             }
             subgraph {
-            n19[label="19" pos="8,-2!"];
+            n19[label="19" color="red" pos="8,-2!"];
             subgraph {
             n21[label="21" pos="8,-3!"];
             subgraph {
@@ -666,9 +666,9 @@ public class ZulipTest {
             n22 -> n21[label="u"];
             }
             subgraph {
-            n23[label="23" pos="10,-3!"];
+            n23[label="23" color="red" pos="10,-3!"];
             subgraph {
-            n25[label="25" pos="10,-4!"];
+            n25[label="25" color="red" pos="10,-4!"];
             }
             n23 -> n25[label="d"];
             n25 -> n25[label="n"];
