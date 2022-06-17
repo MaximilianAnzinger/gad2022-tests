@@ -30,6 +30,7 @@ public class ZulipTest {
         // extractMin: pre consolidate
         // TODO: add 'System.out.println(this);' in extractMin before calling consolidate
         //		extractMinPost();
+        // and compare to extractMinPreConsolidate
         // extractMin: post operation
         assertEquals(extractMinPostString, extractMinPost().toString());
 
@@ -344,7 +345,7 @@ public class ZulipTest {
          */
     }
 
-    private static final String extractMinPostString = """
+    private static final String extractMinPreConsolidate = """
             digraph G {
             min[label="min" pos="0,0!"];
             subgraph {
@@ -407,10 +408,8 @@ public class ZulipTest {
             n9 -> n5[label="p"];
             n11:n -> n2:n[label="n"];
             n11 -> n9[label="p"];
-            }
-             */
-
-            /* Graphviz string - post consolidate:
+            }""";
+    private static final String extractMinPostString = """
             digraph G {
             min[label="min" pos="0,0!"];
             subgraph {
@@ -539,7 +538,7 @@ public class ZulipTest {
             n17 -> n15[label="u"];
             }
             subgraph {
-            n19[label="19" color="red" pos="8,-2!"];
+            n19[label="19" pos="8,-2!"];
             subgraph {
             n21[label="21" pos="8,-3!"];
             subgraph {
@@ -551,7 +550,7 @@ public class ZulipTest {
             n22 -> n21[label="u"];
             }
             subgraph {
-            n23[label="23" color="red" pos="10,-3!"];
+            n23[label="23" pos="10,-3!"];
             subgraph {
             n25[label="25" pos="10,-4!"];
             subgraph {
@@ -655,7 +654,7 @@ public class ZulipTest {
             n17 -> n15[label="u"];
             }
             subgraph {
-            n19[label="19" color="red" pos="8,-2!"];
+            n19[label="19" pos="8,-2!"];
             subgraph {
             n21[label="21" pos="8,-3!"];
             subgraph {
@@ -667,9 +666,9 @@ public class ZulipTest {
             n22 -> n21[label="u"];
             }
             subgraph {
-            n23[label="23" color="red" pos="10,-3!"];
+            n23[label="23" pos="10,-3!"];
             subgraph {
-            n25[label="25" color="red" pos="10,-4!"];
+            n25[label="25" pos="10,-4!"];
             }
             n23 -> n25[label="d"];
             n25 -> n25[label="n"];
