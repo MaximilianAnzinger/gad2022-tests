@@ -1,4 +1,4 @@
-package test;
+package gad.SortTesting;
 
 import gad.simplesort.PivotFinder;
 import org.junit.jupiter.api.Test;
@@ -149,8 +149,8 @@ public class MedianPivotTest {
         PivotFinder medianPivotFinder = PivotFinder.getMedianPivotFront(numbers.length);
         assertEquals(1, medianPivotFinder.findPivot(numbers, 1, numbers.length - 2));
 
-        // 1 2 4 6 10 11 -12- 13 14 15 26 37 45
-        // Pivot 1372 at Index 11
+        // 37 -26- 45
+        // Pivot 26 at Index 11
         numbers = new int[]{2, 4, 1, 9, 10, 11, 12, 13, 14, 15, 26, 37, 45};
         medianPivotFinder = PivotFinder.getMedianPivotFront(numbers.length);
         assertEquals(11, medianPivotFinder.findPivot(numbers, numbers.length - 3, numbers.length - 1));
