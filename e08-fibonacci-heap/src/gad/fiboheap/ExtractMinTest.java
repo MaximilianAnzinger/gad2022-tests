@@ -23,7 +23,7 @@ public class ExtractMinTest {
 
         assertEquals(0, actual.size(), "Die Größe des Heaps passt nach extractMin() nicht!");
 
-        assertEquals(new FiboHeap<>().toString(), actual.toString(), "Die toString() Methode des Heaps erzeugt nicht den gleichen String wie erwartet, der Heap könnte trotzdem richtig sein, überprüfe den Graphen auf der GraphWiz Website (siehe Artemis)");
+        assertEquals(new FiboHeap<>().toString(), actual.toString(), "Die toString() Methode des Heaps erzeugt nicht den gleichen String wie erwartet, der Heap könnte trotzdem richtig sein, überprüfe den Graphen auf der GraphViz Website (siehe Artemis)");
     }
 
     @Test
@@ -48,6 +48,6 @@ public class ExtractMinTest {
 
         assertEquals(1, actual.size(), "Die Größe des Heaps passt nach extractMin() nicht!");
 
-        assertEquals(expected.toString(), actual.toString(), "Die toString() Methode des Heaps erzeugt nicht den gleichen String wie erwartet, der Heap könnte trotzdem richtig sein, überprüfe den Graphen auf der GraphWiz Website (siehe Artemis)");
+        assertEquals(expected.toString(), actual.toString(), "Die toString() Methode des Heaps erzeugt nicht den gleichen String wie erwartet, der Heap könnte trotzdem richtig sein, überprüfe den Graphen auf der GraphViz Website (siehe Artemis)");
     }
 }
