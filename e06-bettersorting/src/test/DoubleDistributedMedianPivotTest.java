@@ -11,27 +11,27 @@ public class DoubleDistributedMedianPivotTest {
         // -1- -2- 4
         int[] numbers = new int[]{4, 9, 1, 10, 2};
         DualPivotFinder dualPivotFinder = DualPivotFinder.getMedianPivotDistributed(3);
-        assertDoubleMedians(2, 4, dualPivotFinder.findPivot(numbers, 0, numbers.length));
+        assertDoubleMedians(2, 4, dualPivotFinder.findPivot(numbers, 0, numbers.length - 1));
 
         // -3- -4- 15
         numbers = new int[]{4, 9, 1, 10, 2, 15, 13, 26, 17, 55, 3, 11};
         dualPivotFinder = DualPivotFinder.getMedianPivotDistributed(3);
-        assertDoubleMedians(10, 0, dualPivotFinder.findPivot(numbers, 0, numbers.length));
+        assertDoubleMedians(10, 0, dualPivotFinder.findPivot(numbers, 0, numbers.length - 1));
 
         // 1 -2- 4 -13- 17
         numbers = new int[]{4, 9, 1, 10, 2, 15, 13, 26, 17, 55, 3, 11};
         dualPivotFinder = DualPivotFinder.getMedianPivotDistributed(5);
-        assertDoubleMedians(4, 6, dualPivotFinder.findPivot(numbers, 0, numbers.length));
+        assertDoubleMedians(4, 6, dualPivotFinder.findPivot(numbers, 0, numbers.length - 1));
 
         // -4- 10 -13- 55
         numbers = new int[]{4, 9, 1, 10, 2, 15, 13, 26, 17, 55, 3, 11};
         dualPivotFinder = DualPivotFinder.getMedianPivotDistributed(4);
-        assertDoubleMedians(0, 6, dualPivotFinder.findPivot(numbers, 0, numbers.length));
+        assertDoubleMedians(0, 6, dualPivotFinder.findPivot(numbers, 0, numbers.length - 1));
 
         // 1 2 3 -4- 9 10 11 -13- 15 17 26 55
         numbers = new int[]{4, 9, 1, 10, 2, 15, 13, 26, 17, 55, 3, 11};
         dualPivotFinder = DualPivotFinder.getMedianPivotDistributed(numbers.length);
-        assertDoubleMedians(0, 6, dualPivotFinder.findPivot(numbers, 0, numbers.length));
+        assertDoubleMedians(0, 6, dualPivotFinder.findPivot(numbers, 0, numbers.length - 1));
     }
 
 
@@ -50,7 +50,7 @@ public class DoubleDistributedMedianPivotTest {
         // 0 -6- 12 -16- 18
         numbers = new int[]{30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 12, 9, 6, 3, 0};
         dualPivotFinder = DualPivotFinder.getMedianPivotDistributed(5);
-        assertDoubleMedians(18, 14, dualPivotFinder.findPivot(numbers, 12, numbers.length));
+        assertDoubleMedians(18, 14, dualPivotFinder.findPivot(numbers, 12, numbers.length - 1));
     }
 
     @Test
