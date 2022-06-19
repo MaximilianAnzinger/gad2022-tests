@@ -73,7 +73,6 @@ public class DoubleDistributedMedianPivotTest {
 
     private void assertDoubleMedians(int firstPivot, int secondPivot, int[] actualPivots) {
         assertEquals(2, actualPivots.length);
-        Arrays.sort(actualPivots);
         assertEquals(firstPivot, actualPivots[0]);
         assertEquals(secondPivot, actualPivots[1]);
     }
