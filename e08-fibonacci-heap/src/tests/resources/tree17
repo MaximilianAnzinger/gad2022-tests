@@ -1,0 +1,9 @@
+digraph G {
+min[label="min" pos="0,0!"];
+subgraph {
+n2[label="2" pos="0,-1!"];
+}
+min -> n2[label=""];
+n2 -> n2[label="n"];
+n2 -> n2[label="p"];
+}

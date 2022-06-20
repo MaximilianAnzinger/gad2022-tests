@@ -1,0 +1,67 @@
+digraph G {
+min[label="min" pos="0,0!"];
+subgraph {
+n90[label="90" pos="0,-1!"];
+subgraph {
+n100[label="100" pos="0,-2!"];
+}
+n90 -> n100[label="d"];
+n100 -> n100[label="n"];
+n100 -> n100[label="p"];
+n100 -> n90[label="u"];
+}
+subgraph {
+n1234[label="1234" pos="2,-1!"];
+subgraph {
+n20[label="20" pos="2,-2!"];
+}
+subgraph {
+n30[label="30" pos="3,-2!"];
+subgraph {
+n40[label="40" pos="3,-3!"];
+}
+n30 -> n40[label="d"];
+n40 -> n40[label="n"];
+n40 -> n40[label="p"];
+n40 -> n30[label="u"];
+}
+subgraph {
+n50[label="50" pos="5,-2!"];
+subgraph {
+n60[label="60" pos="5,-3!"];
+}
+subgraph {
+n70[label="70" pos="6,-3!"];
+subgraph {
+n80[label="80" pos="6,-4!"];
+}
+n70 -> n80[label="d"];
+n80 -> n80[label="n"];
+n80 -> n80[label="p"];
+n80 -> n70[label="u"];
+}
+n50 -> n60[label="d"];
+n60 -> n70[label="n"];
+n60:s -> n70:s[label="p"];
+n60 -> n50[label="u"];
+n70:n -> n60:n[label="n"];
+n70 -> n60[label="p"];
+n70 -> n50[label="u"];
+}
+n1234 -> n20[label="d"];
+n20 -> n30[label="n"];
+n20:s -> n50:s[label="p"];
+n20 -> n1234[label="u"];
+n30 -> n50[label="n"];
+n30 -> n20[label="p"];
+n30 -> n1234[label="u"];
+n50:n -> n20:n[label="n"];
+n50 -> n30[label="p"];
+n50 -> n1234[label="u"];
+}
+min -> n90[label=""];
+n90 -> n1234[label="n"];
+n90:s -> n1234:s[label="p"];
+n1234:n -> n90:n[label="n"];
+n1234 -> n90[label="p"];
+}

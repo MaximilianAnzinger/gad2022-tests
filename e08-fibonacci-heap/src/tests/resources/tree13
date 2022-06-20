@@ -1,0 +1,16 @@
+digraph G {
+min[label="min" pos="0,0!"];
+subgraph {
+n2[label="2" pos="0,-1!"];
+subgraph {
+n4[label="4" pos="0,-2!"];
+}
+n2 -> n4[label="d"];
+n4 -> n4[label="n"];
+n4 -> n4[label="p"];
+n4 -> n2[label="u"];
+}
+min -> n2[label=""];
+n2 -> n2[label="n"];
+n2 -> n2[label="p"];
+}
