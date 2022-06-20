@@ -1,0 +1,3 @@
+digraph G {
+min[label="min" pos="0,0!"];
+}

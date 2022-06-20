@@ -1,0 +1,41 @@
+digraph G {
+min[label="min" pos="0,0!"];
+subgraph {
+n12[label="12" pos="0,-1!"];
+subgraph {
+n28[label="28" pos="0,-2!"];
+}
+n12 -> n28[label="d"];
+n28 -> n28[label="n"];
+n28 -> n28[label="p"];
+n28 -> n12[label="u"];
+}
+subgraph {
+n13[label="13" pos="2,-1!"];
+}
+subgraph {
+n14[label="14" pos="3,-1!"];
+}
+subgraph {
+n20[label="20" pos="4,-1!"];
+}
+subgraph {
+n30[label="30" pos="5,-1!"];
+}
+subgraph {
+n40[label="40" pos="6,-1!"];
+}
+min -> n12[label=""];
+n12 -> n13[label="n"];
+n12:s -> n40:s[label="p"];
+n13 -> n14[label="n"];
+n13 -> n12[label="p"];
+n14 -> n20[label="n"];
+n14 -> n13[label="p"];
+n20 -> n30[label="n"];
+n20 -> n14[label="p"];
+n30 -> n40[label="n"];
+n30 -> n20[label="p"];
+n40:n -> n12:n[label="n"];
+n40 -> n30[label="p"];
+}
