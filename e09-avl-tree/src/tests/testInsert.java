@@ -3,7 +3,6 @@ package tests;
 import gad.avl.AVLTree;
 import gad.avl.AVLTreeNode;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;

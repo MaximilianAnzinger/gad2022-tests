@@ -2,15 +2,15 @@ package tests;
 
 import gad.avl.AVLTree;
 import gad.avl.AVLTreeNode;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testValidAVL {
 
-    @BeforeEach
-    public void generalTests() {
+    @BeforeAll
+    public static void generalTests() {
         testAVLTreeNode testAVLTreeNode = new testAVLTreeNode();
         testAVLTreeNode.testConstructor();
     }
@@ -85,7 +85,7 @@ public class testValidAVL {
     @Test
     public void testValidAVLNull() {
         AVLTree avlTree = new AVLTree();
-        validAVLTester(false, avlTree);
+        validAVLTester(true, avlTree);
     }
 
     public void validAVLTester(boolean expected, AVLTree avlTree) {

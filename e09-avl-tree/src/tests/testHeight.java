@@ -2,15 +2,15 @@ package tests;
 
 import gad.avl.AVLTree;
 import gad.avl.AVLTreeNode;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class testHeight {
 
-    @BeforeEach
-    public void generalTests() {
+    @BeforeAll
+    static public void generalTests() {
         testAVLTreeNode testAVLTreeNode = new testAVLTreeNode();
         testAVLTreeNode.testConstructor();
     }
