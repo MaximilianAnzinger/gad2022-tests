@@ -42,7 +42,7 @@ public class testValidAVL {
 
         avlTree.setRoot(root);
 
-        validAVLTester(true, avlTree);
+        validAVLTester(false, avlTree);
     }
 
     @Test
