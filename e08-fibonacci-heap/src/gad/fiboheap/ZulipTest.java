@@ -5,46 +5,30 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ZulipTest {
+    static Stream<Arguments> testInstructionExamplesArgs() {
+        return Stream.of(
+                Arguments.of("insert example: pre insert(4)", insertPreString, (Supplier<FiboHeap>) ZulipTest::insertPre),
+                Arguments.of("insert example: post insert(4)", insertPostString, (Supplier<FiboHeap>) ZulipTest::insertPost),
+                Arguments.of("merge example: heap 1", mergeH1String, (Supplier<FiboHeap>) ZulipTest::mergeH1),
+                Arguments.of("merge example: heap 2" , mergeH2String, (Supplier<FiboHeap>) ZulipTest::mergeH2),
+                Arguments.of("merge example: final heap", mergeExampleString, (Supplier<FiboHeap>) ZulipTest::mergeExample),
+                Arguments.of("extractMin: pre operation heap", extractMinPreString, (Supplier<FiboHeap>) ZulipTest::extractMinPre),
+                Arguments.of("extractMin: post operation", extractMinPostString, (Supplier<FiboHeap>) ZulipTest::extractMinPost),
+                Arguments.of("decreaseKey: pre operations", decreaseKeyPreString, (Supplier<FiboHeap>) ZulipTest::decreaseKeyPre),
+                Arguments.of("decreaseKey: post decreaseKey(26,6)", decreaseKeyPost1String, (Supplier<FiboHeap>) ZulipTest::decreaseKeyPost1),
+                Arguments.of("decreaseKey: post decreaseKey(25,5)", decreaseKeyPost2String, (Supplier<FiboHeap>) ZulipTest::decreaseKeyPost2),
+                Arguments.of("decreaseKey: basic", decreaseKeyBasicString, (Supplier<FiboHeap>) ZulipTest::decreaseKeyBasic)
+        );
+
+    }
+
     // Special thanks to Georg Henning (ÜL)
     // converted to a JUnit Test by Jonas Ladner
     // https://zulip.in.tum.de/#narrow/stream/1133-GAD-Aufgabe-8---Fibonacci-Heap/topic/Beispielheaps/near/615976
-    @Test
-    public void testInstructionExamples() {
-        // INSERT
-        // insert example: pre insert(4)
-        assertEquals(insertPreString, insertPre().toString());
-        // insert example: post insert(4)
-        assertEquals(insertPostString, insertPost().toString());
-
-        // MERGE
-        // merge example: heap 1
-        assertEquals(mergeH1String, mergeH1().toString());
-        // merge example: heap 2
-        assertEquals(mergeH2String, mergeH2().toString());
-        // merge example: final heap
-        assertEquals(mergeExampleString, mergeExample().toString());
-
-        // EXTRACTMIN, CONSOLIDATE
-        // extractMin: pre operation heap
-        assertEquals(extractMinPreString, extractMinPre().toString());
-        // extractMin: pre consolidate
-        // TODO: add 'System.out.println(this);' in extractMin before calling consolidate
-        //		extractMinPost();
-        // and compare to extractMinPreConsolidate
-        // extractMin: post operation
-        assertEquals(extractMinPostString, extractMinPost().toString());
-
-        // DECREASEKEY
-        // decreaseKey: pre operations
-        //		System.out.println(decreaseKeyPre());
-        assertEquals(decreaseKeyPreString, decreaseKeyPre().toString());
-        // decreaseKey: post decreaseKey(26,6)
-        //		System.out.println(decreaseKeyPost1());
-        assertEquals(decreaseKeyPost1String, decreaseKeyPost1().toString());
-        // decreaseKey: post decreaseKey(25,5)
-        assertEquals(decreaseKeyPost2String, decreaseKeyPost2().toString());
-        // decreaseKey: basic
-        assertEquals(decreaseKeyBasicString, decreaseKeyBasic().toString());
+    @ParameterizedTest(name = "{index} {0}")
+    @MethodSource("testInstructionExamplesArgs")
+    public void testInstructionExamples(String name, String expected, Supplier<FiboHeap> actual) {
+        assertEquals(expected, actual.get().toString());
     }
 
     private static FiboHeap<Integer> insertPre() {
