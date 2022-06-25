@@ -2,6 +2,7 @@ package tests;
 
 import gad.avl.AVLTree;
 import gad.avl.AVLTreeNode;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class testInsert {
 
@@ -32,7 +31,7 @@ public class testInsert {
 
         avlTree.setRoot(root);
 
-        insertTester(4, "tree5", avlTree);
+        insertTester(4, "tests/resources/tree5", avlTree);
     }
 
     @Test
@@ -53,7 +52,7 @@ public class testInsert {
 
         avlTree.setRoot(root);
 
-        insertTester(30, "tree4", avlTree);
+        insertTester(30, "tests/resources/tree4", avlTree);
     }
 
     @Test
@@ -74,7 +73,7 @@ public class testInsert {
 
         avlTree.setRoot(root);
 
-        insertTester(18, "tree6", avlTree);
+        insertTester(18, "tests/resources/tree6", avlTree);
     }
 
     @Test
@@ -95,7 +94,7 @@ public class testInsert {
 
         avlTree.setRoot(root);
 
-        insertTester(18, "tree7", avlTree);
+        insertTester(18, "tests/resources/tree7", avlTree);
     }
 
     @Test
@@ -116,7 +115,7 @@ public class testInsert {
 
         avlTree.setRoot(root);
 
-        insertTester(13, "tree8", avlTree);
+        insertTester(13, "tests/resources/tree8", avlTree);
     }
 
     @Test
@@ -137,7 +136,7 @@ public class testInsert {
 
         avlTree.setRoot(root);
 
-        insertTester(1, "tree3", avlTree);
+        insertTester(1, "tests/resources/tree3", avlTree);
     }
 
     @Test
@@ -146,34 +145,34 @@ public class testInsert {
         AVLTreeNode root = new AVLTreeNode(1);
         avlTree.setRoot(root);
 
-        insertTester(1, "tree2", avlTree);
+        insertTester(1, "tests/resources/tree2", avlTree);
     }
 
     @Test
     public void testInsertNull() throws IOException {
         AVLTree avlTree = new AVLTree();
-        insertTester(1, "tree1", avlTree);
+        insertTester(1, "tests/resources/tree1", avlTree);
     }
 
     public void insertTester(int key, String expectedFile, AVLTree avlTree) throws IOException {
         System.out.println("Test with tree:");
         System.out.println(avlTree);
         avlTree.insert(key);
-        System.out.println("\nTree after insert(key):");
+        System.out.println("\nTree after insert(key): " + key);
         System.out.println(avlTree);
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/tests/resources/" + expectedFile));
-        String expected = reader.readLine();
+        BufferedReader reader = new BufferedReader(new FileReader("" + expectedFile));
+        StringBuilder expected = new StringBuilder(reader.readLine());
 
         for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-            expected = expected + "\n" + line;
+            expected.append("\n").append(line);
         }
 
         reader.close();
-        expected = expected.replaceAll("\n", "\r\n");
+        expected = new StringBuilder(expected.toString().replaceAll("\n", System.lineSeparator()));
 
-        assertEquals(expected, avlTree.toString());
+        Assertions.assertEquals(expected.toString(), avlTree.toString());
 
-        assertTrue(avlTree.validAVL(), "Deine validAVL behauptet dass der Baum nicht korrekt ist");
+        Assertions.assertTrue(avlTree.validAVL(), "Deine validAVL behauptet dass der Baum nicht korrekt ist");
     }
 }
