@@ -172,8 +172,8 @@ public class testInsert {
         reader.close();
         expected = new StringBuilder(expected.toString().replaceAll("\n", System.lineSeparator()));
 
-        Assertions.assertEquals(expected.toString(), avlTree.toString());
+        assertEquals(expected.toString(), avlTree.toString());
 
-        Assertions.assertTrue(avlTree.validAVL(), "Deine validAVL behauptet dass der Baum nicht korrekt ist");
+        assertTrue(avlTree.validAVL(), "Deine validAVL behauptet dass der Baum nicht korrekt ist");
     }
 }
