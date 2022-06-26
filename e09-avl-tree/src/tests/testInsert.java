@@ -21,6 +21,101 @@ public class testInsert {
     }
 
     @Test
+    public void testInsertVerySimple() {
+        AVLTree avlTree = new AVLTree();
+        avlTree.insert(0);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                \t0 [label="0, b=0"];
+                }""", avlTree.toString());
+        avlTree.insert(-1);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                \t0 [label="0, b=-1"];
+                \t0 -> 1 [label="l"];
+                \t1 [label="-1, b=0"];
+                }""", avlTree.toString());
+        avlTree.insert(1);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                \t0 [label="0, b=0"];
+                \t0 -> 1 [label="l"];
+                \t1 [label="-1, b=0"];
+                \t0 -> 2 [label="r"];
+                \t2 [label="1, b=0"];
+                }""", avlTree.toString());
+    }
+    @Test
+    public void testInsertVerySimpleLeft() {
+        AVLTree avlTree = new AVLTree();
+        avlTree.insert(0);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                \t0 [label="0, b=0"];
+                }""", avlTree.toString());
+        avlTree.insert(-1);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                	0 [label="0, b=-1"];
+                	0 -> 1 [label="l"];
+                	1 [label="-1, b=0"];
+                }""", avlTree.toString());
+        avlTree.insert(-2);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                	0 [label="-1, b=0"];
+                	0 -> 1 [label="l"];
+                	1 [label="-2, b=0"];
+                	0 -> 2 [label="r"];
+                	2 [label="0, b=0"];
+                }""", avlTree.toString());
+    }
+
+    @Test
+    public void testInsertVerySimpleRight() {
+        AVLTree avlTree = new AVLTree();
+        avlTree.insert(0);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                \t0 [label="0, b=0"];
+                }""", avlTree.toString());
+        avlTree.insert(1);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                	0 [label="0, b=1"];
+                	0 -> 1 [label="r"];
+                	1 [label="1, b=0"];
+                }""", avlTree.toString());
+        avlTree.insert(2);
+        assertTrue(avlTree.validAVL());
+        System.out.println(avlTree);
+        assertEquals("""
+                digraph {
+                	0 [label="1, b=0"];
+                	0 -> 1 [label="l"];
+                	1 [label="0, b=0"];
+                	0 -> 2 [label="r"];
+                	2 [label="2, b=0"];
+                }""", avlTree.toString());
+    }
+
+    @Test
     public void testInsertSimple() throws IOException {
         AVLTree avlTree = new AVLTree();
         AVLTreeNode root = new AVLTreeNode(2);
