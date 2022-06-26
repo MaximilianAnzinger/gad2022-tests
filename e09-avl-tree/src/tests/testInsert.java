@@ -159,20 +159,20 @@ public class testInsert {
         System.out.println("Test with tree:");
         System.out.println(avlTree);
         avlTree.insert(key);
-        System.out.println("\nTree after insert(key):");
+        System.out.println("\nTree after insert(key): " + key);
         System.out.println(avlTree);
 
-        BufferedReader reader = new BufferedReader(new FileReader("src/tests/resources/" + expectedFile));
-        String expected = reader.readLine();
+        BufferedReader reader = new BufferedReader(new FileReader("" + expectedFile));
+        StringBuilder expected = new StringBuilder(reader.readLine());
 
         for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-            expected = expected + "\n" + line;
+            expected.append("\n").append(line);
         }
 
         reader.close();
-        expected = expected.replaceAll("\n", "\r\n");
+        expected = new StringBuilder(expected.toString().replaceAll("\n", System.lineSeparator()));
 
-        assertEquals(expected, avlTree.toString());
+        assertEquals(expected.toString(), avlTree.toString());
 
         assertTrue(avlTree.validAVL(), "Deine validAVL behauptet dass der Baum nicht korrekt ist");
     }
