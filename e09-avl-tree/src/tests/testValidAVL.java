@@ -4,8 +4,9 @@ import gad.avl.AVLTree;
 import gad.avl.AVLTreeNode;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class testValidAVL {
 
@@ -83,15 +84,63 @@ public class testValidAVL {
     }
 
     @Test
-    public void testValidAVLNull() {
+    public void testValidAVLNull() { //changed this test in order to make it work without checking for a specific return value (undefined)
         AVLTree avlTree = new AVLTree();
-        validAVLTester(true, avlTree);
+        printTree(avlTree);
+        assertDoesNotThrow((Executable) avlTree::validAVL, "Unexpected Exception when calling validAVL on an empty Tree");
     }
 
+
+    @Test
+    void invalidAVLEdgeCase1() {
+        AVLTree tree = new AVLTree();
+        AVLTreeNode root = new AVLTreeNode(25);
+        AVLTreeNode left = new AVLTreeNode(20);
+        AVLTreeNode right = new AVLTreeNode(26);
+        root.setLeft(left);
+        root.setRight(right);
+        tree.setRoot(root);
+
+        left.setLeft(new AVLTreeNode(19));
+        left.setRight(new AVLTreeNode(23));
+
+        right.setRight(new AVLTreeNode(27));
+        right.setLeft(new AVLTreeNode(24));
+
+        printTree(tree);
+
+        assertFalse(tree.validAVL(), "Der Baum war nicht richtig sortiert, wurde aber als richtig erkannt.");
+    }
+
+    @Test
+    void invalidAVLEdgeCase2() {
+        AVLTree tree = new AVLTree();
+        AVLTreeNode root = new AVLTreeNode(25);
+        AVLTreeNode left = new AVLTreeNode(20);
+        AVLTreeNode right = new AVLTreeNode(26);
+        root.setLeft(left);
+        root.setRight(right);
+        tree.setRoot(root);
+
+        left.setLeft(new AVLTreeNode(19));
+        left.setRight(new AVLTreeNode(200));
+
+        right.setRight(new AVLTreeNode(27));
+        right.setLeft(new AVLTreeNode(26));
+
+        printTree(tree);
+
+        assertFalse(tree.validAVL(), "Der Baum war nicht richtig sortiert, wurde aber als richtig erkannt.");
+    }
+
+
     public void validAVLTester(boolean expected, AVLTree avlTree) {
+        printTree(avlTree);
+        assertEquals(expected, avlTree.validAVL());
+    }
+
+    public void printTree(AVLTree avlTree) {
         System.out.println("Test with tree:");
         System.out.println(avlTree);
-
-        assertEquals(expected, avlTree.validAVL());
     }
 }
