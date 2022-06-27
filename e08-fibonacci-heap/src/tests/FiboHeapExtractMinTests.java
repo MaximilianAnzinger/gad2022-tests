@@ -37,6 +37,7 @@ public class FiboHeapExtractMinTests {
         fiboNodeChild.setRank(0);
 
         fiboHeap1.setMin(fiboNode1);
+		fiboHeap1.setSize(4);
 
         extractMinTester(fiboHeap1, "tree6", 1, 2);
     }
