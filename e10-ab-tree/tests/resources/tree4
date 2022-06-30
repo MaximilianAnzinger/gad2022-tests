@@ -1,0 +1,18 @@
+digraph {
+	node [shape=record];
+	struct0 [label="<f0> |<f1> 109|<f2> "];
+	struct0:<f0> -> struct1;
+	struct1 [label="<f0> |<f1> 23|<f2> |<f3> 49|<f4> "];
+	struct1:<f0> -> struct2;
+	struct2 [label=leaf, shape=ellipse];
+	struct1:<f2> -> struct3;
+	struct3 [label=leaf, shape=ellipse];
+	struct1:<f4> -> struct4;
+	struct4 [label=leaf, shape=ellipse];
+	struct0:<f2> -> struct5;
+	struct5 [label="<f0> |<f1> 180|<f2> "];
+	struct5:<f0> -> struct6;
+	struct6 [label=leaf, shape=ellipse];
+	struct5:<f2> -> struct7;
+	struct7 [label=leaf, shape=ellipse];
+}
