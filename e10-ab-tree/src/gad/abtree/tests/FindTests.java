@@ -18,7 +18,7 @@ public class FindTests {
                 Arguments.of(2, 4, 16),
                 Arguments.of(2, 5, 16),
                 Arguments.of(4, 8, 16),
-                Arguments.of(6, 10, 16),
+                Arguments.of(5, 10, 16),
                 Arguments.of(10, 20, 16)
         );
     }
