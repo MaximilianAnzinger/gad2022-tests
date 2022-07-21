@@ -9,28 +9,28 @@ import java.util.Comparator;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FirstGraphTest {
-    private static final Graph lectureGraph1 = Graph.of(7,
+    public static final Graph lectureGraph1 = Graph.of(7,
             1, 1, 3, 1, 5, 1, 1, 1, 4, 1, 6, 1, 2, 1, 5, 1, 2, 1, 4, -1,
             3, 1, 6);
-    private static final Graph lectureGraph2 = Graph.of(11,
+    public static final Graph lectureGraph2 = Graph.of(11,
             0, 1, 1, 1, 10, 2, 4, 2, 7, 1, 8, -1,
             0, 2, 2, 4, 6, 1, 5, 2, 7, 2, 9, -1,
-            10, 1, 3, 1, 7, -1,
+            10, 1, 3, 1, 6, -1,
             2, 3, 5, -1,
-            3, 3, 6);
-    private static final Graph exerciseGraph1 = Graph.of(7,
+            3, 1, 7);
+    public static final Graph exerciseGraph1 = Graph.of(7,
             0, 1, 3, 2, 2, 3, 1, 4, 4, 5, 5, 6, 6, 1, 3, -1,
             0, 20, 2, 11, 5, -1,
             0, 19, 1, -1,
             0, 18, 4, 7, 3, -1,
             0, 17, 5);
-    private static final Graph exerciseGraph2 = Graph.of(11,
+    public static final Graph exerciseGraph2 = Graph.of(11,
             0, 1, 2, 1, 6, 1, 7, 1, 9, 1, 1, 1, 5, -1,
             2, 1, 3, 1, 6, 1, 9, -1,
             10, 1, 0, 1, 8, 1, 4, -1,
             3, 1, 8, 1, 10, 1, 6, 1, 1, -1,
             3, 1, 1, -1, 10, 1, 5);
-    private static final Graph sampleGraph1 = Graph.of(5,
+    public static final Graph sampleGraph1 = Graph.of(5,
             0, 2, 1, 3, 0, 4, 1, 5, 0, 6, 1, -1,
             2, 1, 3, 10, 4, 0, 2, 1, 3, 20, 4, 100, 2, 1, 3, -1,
             4, 1, 3);
@@ -94,23 +94,16 @@ public class FirstGraphTest {
 
     private void assertNeighbors(Graph graph, int node, int... neighbors) {
         assertEquals(Arrays.toString(neighbors), Arrays.toString
-                (graph.getAllNodes().stream().
-                        filter(n -> n.getID() == node).
-                        findAny().orElseThrow().getNeighbours().stream().
+                (graph.getNode(node).getNeighbours().stream().
                         sorted(Comparator.comparingInt(Graph.Node::getID)).
                         mapToInt(Graph.Node::getID).toArray()));
     }
 
     @SuppressWarnings("all")
     private void assertShortestDistanceNeighbors(Graph graph, int node, int neighbor, int distance) {
-        assertEquals(distance, graph.getAllNodes().stream().
-                filter(n -> n.getID() == node).
-                findAny().orElseThrow().
-                getShortestDistanceToNeighbour(graph.getAllNodes().stream().
-                        filter(n -> n.getID() == neighbor).
-                        findAny().orElseThrow()));
+        assertEquals(distance, graph.getNode(node).
+                getShortestDistanceToNeighbour(graph.getNode(neighbor)));
     }
-
 
     public static void write(Object object) {
         System.out.println
